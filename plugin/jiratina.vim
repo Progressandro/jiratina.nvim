@@ -1,12 +1,15 @@
-if exists('g:loaded_jiratina') | finish | endif " prevent loading file twice
+" plugin/jiratina.vim
+if exists('g:loaded_jiratina') | finish | endif
 
-let s:save_cpo = &cpo " save user coptions
-set cpo&vim " reset them to defaults
+let s:save_cpo = &cpo
+set cpo&vim
 
-" command to run our plugin
-command! Whid lua require'jiratina'.jiratina()
+hi def link JiratinaHeader      Number
+hi def link JiratinaSubHeader   Identifier
 
-let &cpo = s:save_cpo " and restore after
+command! Jiratina lua require'jiratina'.jiratina()
+
+let &cpo = s:save_cpo
 unlet s:save_cpo
 
 let g:loaded_jiratina = 1
