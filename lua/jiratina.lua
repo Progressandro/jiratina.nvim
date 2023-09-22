@@ -67,7 +67,7 @@ local function update_view(direction)
 	end
 
 	local result = vim.api.nvim_call_function("systemlist", {
-		"jira sprint list --current -a$(jira me) --plain --no-headers",
+		"jira sprint list --current -a$(jira me) --plain --columns Summary --no-headers",
 	})
 
 	if #result == 0 then
@@ -96,8 +96,8 @@ local function start_work()
 		table.insert(row, word)
 	end
   print(vim.inspect(row))
-	local key = row[2]
-	local summary = row[3]
+	local key = row[1]
+	local summary = row[2]
 	local formatted_summary = summary:gsub(" ", "_")
 	formatted_summary = formatted_summary:gsub("[^%w\\_]", "_")
 	local branch_name = key .. "_" .. formatted_summary
