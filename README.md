@@ -1,6 +1,7 @@
 # Jiratina: Jira Tickets -> Git Integration. 
 
 I created this plugin because I was really comfy with the VSCode Atlassian plugin. It allowed to list, view and create issues right from VSCode, but also to create branches based on the Jira ticket code and name, WHICH I REALLY MISS.
+> Note: Even though I made this repo public, the plugin was developed for personal use, really. But it's a good starting point to create your own, more complete solution.
 
 ## Pre-requisites
 - This plugin runs commands from this awesome package: [jira-cli](https://github.com/ankitpokhrel/jira-cli), so you'll need to install it and set it up.
