@@ -1,10 +1,12 @@
-if exists("g:loaded_jiratina")
-  finish
-endif
+if exists('g:loaded_jiratina') | finish | endif " prevent loading file twice
+
+let s:save_cpo = &cpo " save user coptions
+set cpo&vim " reset them to defaults
+
+" command to run our plugin
+command! Whid lua require'jiratina'.jiratina()
+
+let &cpo = s:save_cpo " and restore after
+unlet s:save_cpo
+
 let g:loaded_jiratina = 1
-
-let s:jiratina_deps_loc = expand("<sfile>:p:h") . "/../lua/jiratina/deps"
-exe "lua package.path = package.path .. ';" . s:jiratina_deps_loc . "/lua-?/init.lua'"
-
-command! -nargs=0 JiraLogin lua require("jiratina").login()
-command! -nargs=0 JiraLogout lua require("jiratina").logout()
