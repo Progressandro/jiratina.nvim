@@ -101,7 +101,7 @@ local function start_work()
 	local formatted_summary = summary:gsub(" ", "_")
 	formatted_summary = formatted_summary:gsub("[^%w\\_]", "_")
 	local branch_name = key .. "_" .. formatted_summary
-	vim.api.nvim_call_function("system", { "git checkout $(git branch -l master main | sed -r 's/^[* ] //' | head -n 1) && git checkout -b " .. branch_name })
+	vim.api.nvim_call_function("system", { "git checkout $(git branch -l master main | sed -r 's/^[* ] //' | head -n 1) && git pull && git checkout -b " .. branch_name })
 end
 
 local function move_cursor()
